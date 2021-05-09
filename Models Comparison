@@ -1,0 +1,15 @@
+# Models Comparison
+results = pd.DataFrame({
+    'Model': ['Logistic Regression','Decision Tree','Random Forest','Xgboost'],
+    'Score': [accuracy_score(Y_test,Y_pred_logreg),
+             accuracy_score(Y_test,y_pred_dtree),
+             accuracy_score(Y_test,y_pred2_rf),
+             accuracy_score(Y_test,y_pred5_xgboost)]})
+
+result_df = results.sort_values(by='Score', ascending=False)
+result_df = result_df.set_index('Score')
+print(result_df)
+
+print('\nNN Accuracy')
+x8 = model8.evaluate(X_test,Y_test)
+print(x8)
