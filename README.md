@@ -7,7 +7,7 @@ Heart Disease Prediction
 The short video presentation for this project is at https://www.youtube.com/watch?v=I5So0eXFa6o
 
 
-The slide presentaion used in this video is https://github.com/Desire-Matouba/AI-Final-Project-DSCI-6612-/blob/main/Heart%20Disease%20Prediction_ML.pdf
+The slide presentation used in this video is https://github.com/Desire-Matouba/Heart-Disease-Prediction_ML/blob/main/Heart%20Disease%20Prediction_ML.pdf
 
 ### Project Description 
 
