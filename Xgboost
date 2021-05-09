@@ -1,0 +1,25 @@
+# Using Xgboost
+import xgboost as xgb
+xgb = xgb.XGBClassifier(random_state=1)
+xgb.fit(X_train, Y_train)
+y_pred5_xgboost = xgb.predict(X_test)
+
+from sklearn.metrics import accuracy_score
+print("Accuracy Score:",accuracy_score(Y_test,y_pred5_xgboost))
+print('Precision', metrics.precision_score(Y_test, y_pred5_xgboost))
+
+#ROC Curve For XGBoost
+y_pred_prob = xgb.predict_proba(X_test)[::,1]
+fpr, tpr, _ = metrics.roc_curve(Y_test, y_pred_prob)
+auc = metrics.roc_auc_score(Y_test,y_pred_prob)
+plt.plot(fpr, tpr, label = 'data 1, auc ='+str(auc))
+plt.legend(loc=4)
+plt.show()
+
+#Confusion Matrix of Xgboost
+C_M = confusion_matrix(Y_test, y_pred5_xgboost)
+import seaborn as sn
+plt.figure(figsize=(8,6))
+fig = sn.heatmap(C_M, annot=True)
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
