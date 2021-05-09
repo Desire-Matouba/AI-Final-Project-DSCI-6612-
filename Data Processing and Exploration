@@ -33,6 +33,8 @@ print(df.loc[280:])
 
 # drop rows with NaN values from dataframe
 df = df.dropna(axis=0)
+
+
 print(df.loc[280:])
 
 # transform data to numeric to enable further analysis
