@@ -1,0 +1,21 @@
+# model improvement for Decisison Tree
+#DecisionTree 5 fold cross validation
+import sklearn
+from sklearn.ensemble import BaggingClassifier
+dt = DecisionTreeClassifier(random_state=1)
+results = sklearn.model_selection.cross_val_score(dt, X_train,Y_train, cv=5)
+print(results)
+print(results.mean(), results.std())
+
+
+# BAGGING Ensemble for Decision Tree
+# Create a bag of estimators of size 100
+
+dt_bag = BaggingClassifier(base_estimator=dt, n_estimators = 100, random_state=1, n_jobs=-1)
+
+# Fit / Train model
+dt_bag.fit(X_train,Y_train)
+
+#Results
+results = dt_bag.score(X_test, Y_test)
+results
