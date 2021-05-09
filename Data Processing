@@ -1,0 +1,38 @@
+# Diagnosing Heart Disease using ML models
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from pandas.plotting import scatter_matrix
+from sklearn import model_selection
+from sklearn.metrics import classification_report, accuracy_score
+
+#Getting the Dataset
+url = "http://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data"
+names = ['age',
+        'sex',
+        'cp',          # cp = chest pain
+        'trestbps',    # trestbps = resting blood pressure
+        'chol',        # chol - cholesterol
+        'fbs',         # fbs = fasting blood sugar      
+        'restecg',     # restecg = resting electrocardiographic results
+        'thalach',     # thalach = maximum heart rate achieved
+        'exang',       # exang = exercise induced angina
+        'oldpeak',     # oldpeak = ST depression induced by exercise relative to rest
+        'slope',       # slope = the slope of the peak exercise ST segment
+        'ca',          # ca = number of major vessels (0-3) colored by flourosopy
+        'thal',        # thal = 3 = normal; 6 = fixed defect; 7 = reversable defec
+        'class']
+df = pd.read_csv(url, names=names)
+df['class'] = df['class'].apply(lambda x: 0 if x == 0 else 1)
+df
+df.shape
+
+# remove the missing data (indicated with a '?')
+df = df[~df.isin(['?'])]
+print(df.loc[280:])
+
+# drop rows with NaN values from dataframe
+df = df.dropna(axis=0)
+print(df.loc[280:])
+
+
