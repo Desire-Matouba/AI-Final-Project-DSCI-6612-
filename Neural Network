@@ -1,4 +1,5 @@
 #Neural Network Model
+#Train Accuracy
 import keras
 import tensorflow
 from keras.layers import Dense
@@ -14,4 +15,5 @@ model8.compile(optimizer='adam',
               metrics = ['accuracy'])
 model8.fit(X_train, Y_train,epochs=1000)
 
+#Test Accuracy
 model8.evaluate(X_test,Y_test)
