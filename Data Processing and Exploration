@@ -35,4 +35,31 @@ print(df.loc[280:])
 df = df.dropna(axis=0)
 print(df.loc[280:])
 
+# transform data to numeric to enable further analysis
+df = df.apply(pd.to_numeric)
+print(df.dtypes)
 
+# print data characteristics using pandas in-built describe() function
+print(df.describe())
+
+#Data Visualization
+import numpy as np
+import matplotlib.pyplot as plt  
+import pandas as pd
+import seaborn as sns
+from warnings import filterwarnings
+filterwarnings(action='ignore')
+
+#Class Distribution: 0 = No and 1 = Yes
+sns.countplot(df['class'])
+plt.show()
+plt.rcParams['figure.figsize'] = [10,6]
+
+# plot histograms for each variable
+df.hist(figsize = (12, 12), bins = 20)
+plt.show()
+
+# heat map for expressing correlation
+corr = df.corr()
+plt.figure(figsize=(12, 12))
+sns.heatmap(corr,annot=True)
