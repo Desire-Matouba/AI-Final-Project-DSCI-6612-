@@ -1,0 +1,27 @@
+# Using Logistic Regression
+from sklearn import metrics
+from sklearn.linear_model import LogisticRegression
+log_reg = LogisticRegression(random_state=1)
+log_reg.fit(X_train,Y_train)
+Y_pred_logreg = log_reg.predict(X_test)
+
+from sklearn.metrics import accuracy_score,confusion_matrix
+print("Accuracy Score:",accuracy_score(Y_test,Y_pred_logreg))
+print('Precision', metrics.precision_score(Y_test, Y_pred_logreg))
+
+# ROC Curve For Logistic Regression
+y_pred_prob = log_reg.predict_proba(X_test)[::,1]
+fpr, tpr, _ = metrics.roc_curve(Y_test, y_pred_prob)
+auc = metrics.roc_auc_score(Y_test,y_pred_prob)
+plt.plot(fpr, tpr, label = 'data 1, auc ='+str(auc))
+plt.legend(loc=4)
+plt.show()
+
+#Confusion Matrix of Logistic Regression 
+C_M = confusion_matrix(Y_test, Y_pred_logreg)
+import seaborn as sn
+plt.figure(figsize=(8,6))
+fig = sn.heatmap(C_M, annot=True)
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+
