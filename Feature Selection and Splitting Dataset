@@ -1,0 +1,17 @@
+# feature selection
+X = df.drop(columns=['class'])
+Y = df['class']
+print("Features Extraction Sucessfull")
+
+# feature importance
+from sklearn.linear_model import LogisticRegression
+model = LogisticRegression()
+from sklearn.ensemble import ExtraTreesClassifier
+classifiern = ExtraTreesClassifier()
+classifiern.fit(X,Y)
+score = classifiern.feature_importances_
+print(score)
+
+# Splitting Dataset
+from sklearn.model_selection import train_test_split
+X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.3)
