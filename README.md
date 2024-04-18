@@ -14,7 +14,7 @@ The slide presentation used in this video is https://github.com/Desire-Matouba/H
 This analysis is about predicting the heart disease condition of patients. There are 2 conditions: absence (value 0) to presence (values 1) of heart disease. The European Cardiology Society has found that machine learning  model is more than 90% accurate in analyzing variables to determine a person's risk of suffering a heart attack or death in the future while human prediction are less efficient.
 
 We get the data from UCI Machine Learning Repository. Below is the dataset link:
-http://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/
+https://archive.ics.uci.edu/dataset/45/heart+disease
 
 The dataset has information about 303 patients. Out of the 76 features available, we used only 14 of them for our study. Some of the features are the following:
 cp = chest pain
